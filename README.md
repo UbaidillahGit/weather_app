@@ -1,15 +1,19 @@
 # weather_app
 
-A new Flutter project.
+A Weather App project
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This app show weather information in some Cities
 
 A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## StateManagement
+Riverpod
+
+## How to run project
+
+Get pakcages first at file pubspec.yaml, then run on your VS Code or Android Studio that has been installed with Flutter before
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,

@@ -47,7 +47,11 @@ class WeatherNotifier extends StateNotifier<AsyncValue<ModelWeather ?>> {
       final Uri uri = Uri.https(
         CommonConstants.baseUrl,
         '/data/2.5/weather',
-        {'q': param, 'appid': CommonConstants.apiKey},
+        {
+          'q': param,
+          'units': 'metric',
+          'appid': CommonConstants.apiKey,
+        },
       );
 
       final response = await http.get(

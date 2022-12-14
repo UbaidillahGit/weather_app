@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import 'package:weather_app/features/weather/presentation/components/item.dart';
 import 'package:weather_app/features/weather/presentation/provider/prov_get_weather.dart';
 import 'package:weather_app/features/weather/presentation/search_cities.dart';
@@ -27,7 +26,6 @@ class _WeatherPageState extends ConsumerState<WeatherPage> {
 
   @override
   Widget build(BuildContext context) {
-    // final provider = ref.watch(dataProvider('Jakarta'));
     final provider = ref.watch(weatherProvider);
 
     return Scaffold(
@@ -79,7 +77,7 @@ class _WeatherPageState extends ConsumerState<WeatherPage> {
             if(data?.weather?[0].main == 'Clouds') {
               bgImage = 'assets/sunny.jpg';
               icon = 'assets/icons/sun.svg';
-            } else if (data?.weather?[0].main == 'Mist') {
+            } else if (data?.weather?[0].main == 'Mist' || data?.weather?[0].main == 'Haze') {
               bgImage = 'assets/mist.jpg';
               icon = 'assets/icons/mist.svg';
             } else if (data?.weather?[0].main == 'Rain') {
@@ -137,7 +135,7 @@ class _WeatherPageState extends ConsumerState<WeatherPage> {
                                 ),
                               ),
                               Text(
-                                '${data?.main?.temp!.round()} \u2109',
+                                '${(data?.main?.temp)!} \u2103',
                                 // 'temp',
                                 style: GoogleFonts.lato(
                                   fontSize: 85,
@@ -164,15 +162,6 @@ class _WeatherPageState extends ConsumerState<WeatherPage> {
                                       color: Colors.white,
                                     ),
                                   ),
-                                  const Text(' | '),
-                                  // Text(
-                                  //   '${ DateFormat("yyyy-MM-dd").parse(data!.dt.toString(), true).toLocal() }',
-                                  //   style: GoogleFonts.lato(
-                                  //     fontSize: 14,
-                                  //     fontWeight: FontWeight.bold,
-                                  //     color: Colors.white,
-                                  //   ),
-                                  // )
                                 ],
                               )
                             ],
